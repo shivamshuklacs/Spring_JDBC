@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:beans xmlns:ctx="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans spring-beans.xsd http://www.springframework.org/schema/context spring-context.xsd ">
+
+<ctx:annotation-config></ctx:annotation-config>
+<ctx:component-scan base-package="com.zensar"></ctx:component-scan>
+
+<p:bean id="dbSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<p:property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></p:property>
+<p:property name="url" value="jdbc:mysql://localhost:3306/dao"></p:property>
+<p:property name="username" value="root"></p:property>
+<p:property name="password" value="root"></p:property>
+</p:bean>
+
+<p:bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+<p:property name="dataSource" ref="dbSource"></p:property>
+</p:bean>
+
+
+
+
+</p:beans>
